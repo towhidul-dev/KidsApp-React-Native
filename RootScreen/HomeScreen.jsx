@@ -16,17 +16,17 @@
 import React from 'react'
 import { ScrollView, StyleSheet } from 'react-native'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
-import COLORS from './colors';
+import COLORS from '../colors';
 
 // Our pieces, one file each
-import Header from './components/Header'
-import GreetingCard from './components/GreetingCard'
-import FeaturedRhyme from './components/FeaturedRhyme'
-import Categories from './components/Categories'
-import DailyChallenge from './components/DailyChallenge'
-import PopularVideos from './components/PopularVideos'
-import AudioPlayer from './components/AudioPlayer'
-import BottomTabBar from './components/BottomTabBar'
+import Header from '../components/Header'
+import GreetingCard from '../components/GreetingCard'
+import FeaturedRhyme from '../components/FeaturedRhyme'
+import Categories from '../components/Categories'
+import DailyChallenge from '../components/DailyChallenge'
+import PopularVideos from '../components/PopularVideos'
+import AudioPlayer from '../components/AudioPlayer'
+import BottomTabBar from '../components/BottomTabBar'
 
 function HomeScreen() {
     return (
@@ -49,7 +49,7 @@ function HomeScreen() {
                 </ScrollView>
 
                 {/* Outside the ScrollView, so it always stays at the bottom */}
-                <BottomTabBar />
+                {/* <BottomTabBar /> */}
 
             </SafeAreaView>
         </SafeAreaProvider>
