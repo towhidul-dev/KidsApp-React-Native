@@ -46,6 +46,7 @@ function HomeScreen() {
                     <DailyChallenge />
                     <PopularVideos />
                     <AudioPlayer />
+                    
                 </ScrollView>
 
                 {/* Outside the ScrollView, so it always stays at the bottom */}

@@ -7,6 +7,7 @@
 
 import React from 'react'
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import Video from 'react-native-video';
 import COLORS from '../colors'
 
 function FeaturedRhyme() {
@@ -15,10 +16,18 @@ function FeaturedRhyme() {
 
       {/* The picture, with two small labels ("badges") on top of it */}
       <View style={styles.imageBox}>
-        <Image
-          source={{ uri: 'https://picsum.photos/seed/meadow/800/500' }}
+        <Video
+          source={{ uri: 'https://yvprbyxzpgdiqbccrqss.supabase.co/storage/v1/object/public/Animation%20Bucket/Animations/HattimatimVideos%20(1).mp4' }}
           style={styles.image}
+          resizeMode="cover"
+          controls={true}                 // play/pause, seek bar, fullscreen button
+          paused={true}                   // wait until the child taps play
+          fullscreenOrientation="landscape" // fullscreen turns sideways
+          ignoreSilentSwitch="ignore"     // sound plays even if iPhone is on silent
         />
+
+
+
 
         {/* Top-left badge */}
         <View style={styles.badgeWhite}>

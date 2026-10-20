@@ -5,7 +5,7 @@
 */
 
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TextInput, View } from 'react-native'
 import COLORS from '../colors'
 
 function GreetingCard() {
@@ -14,8 +14,13 @@ function GreetingCard() {
 
       {/* flex: 1 makes the text fill the card and pushes the button right */}
       <View style={styles.textBox}>
-        <Text style={styles.title}>হ্যালো সোনামণি! ☀️</Text>
-        <Text style={styles.subtitle}>আজ কোন ছড়াটি শুনবে ও গাইবে?</Text>
+        <Text style={styles.title}>১ + ১ = 0</Text>
+        {/* <Text style={styles.subtitle}>আজ কোন ছড়াটি শুনবে ও গাইবে?</Text> */}
+        <View style={styles.textInputBox}>
+          <TextInput>Likho</TextInput>
+          <TextInput>Likho</TextInput>
+        </View>
+
       </View>
 
       <View style={styles.button}>
@@ -39,6 +44,11 @@ const styles = StyleSheet.create({
   },
   textBox: {
     flex: 1,
+  },
+  textInputBox: {
+    flexDirection: 'row',
+    // justifyContent: 'space-around',
+    gap: 10,
   },
   title: {
     fontSize: 20,

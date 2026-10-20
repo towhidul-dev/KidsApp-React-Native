@@ -2,24 +2,30 @@
   Categories.js
   -------------
   A title + a row of colored circles you can swipe left and right.
+  Tapping a circle opens that category's poetry page.
 */
 
 import React from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import COLORS from '../colors'
 import SectionHeader from './SectionHeader'
 
 // The list of categories. To add one, just add a new line here.
 // Every item needs a unique "id".
+// "screen" = the page to open. It must match a name in HomeStack.js.
 const categories = [
-  { id: '1', label: 'পশুপাখি',      emoji: '🦜', color: '#6EE7B7' },
-  { id: '2', label: 'গান ও সুর',     emoji: '🎵', color: '#CDE7FF' },
-  { id: '3', label: 'ঘুমপাড়ানি',     emoji: '🌙', color: '#FDD9C6' },
-  { id: '4', label: 'ঋতু ও প্রকৃতি', emoji: '🌧️', color: '#4FB3F6' },
-  { id: '5', label: 'খেলাধুলা',      emoji: '⚽', color: '#FFC56B' },
+  { id: '1', label: 'পশুপাখি', emoji: '🦜', color: '#6EE7B7', screen: 'AnimalsPoetry' },
+  { id: '2', label: 'গান ও সুর', emoji: '🎵', color: '#CDE7FF', screen: 'SongsPoetry' },
+  { id: '3', label: 'ঘুমপাড়ানি', emoji: '🌙', color: '#FDD9C6', screen: 'FlowersPoetry' },
+  { id: '4', label: 'ঋতু ও প্রকৃতি', emoji: '🌧️', color: '#4FB3F6', screen: 'NaturePoetry' },
+  { id: '5', label: 'খেলাধুলা', emoji: '⚽', color: '#FFC56B', screen: 'PlayPoetry' },
 ]
 
 function Categories() {
+  // The "remote control" for moving between pages
+  const navigation = useNavigation()
+
   return (
     <View>
       <SectionHeader icon="🔺" title="ছড়ার জগৎ" />
@@ -31,14 +37,19 @@ function Categories() {
         contentContainerStyle={styles.list}
       >
         {/* .map() draws one circle for each item in the list.
-            "key" must be unique — we use the id. */}
+            Each circle gets its own "category", so each one
+            opens its own page. */}
         {categories.map((category) => (
-          <View key={category.id} style={styles.category}>
+          <Pressable
+            key={category.id}                                    // key goes on the OUTER element
+            style={styles.category}
+            onPress={() => navigation.navigate(category.screen)} // open this circle's page
+          >
             <View style={[styles.circle, { backgroundColor: category.color }]}>
               <Text style={styles.emoji}>{category.emoji}</Text>
             </View>
             <Text style={styles.label}>{category.label}</Text>
-          </View>
+          </Pressable>
         ))}
       </ScrollView>
     </View>

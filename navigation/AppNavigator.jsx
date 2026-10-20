@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import COLORS from '../colors';
 
 import HomeScreen from '../RootScreen/HomeScreen';
+import HomeStack from './HomeStack';
 import StudioScreen from '../RootScreen/StudioScreen';
 
 const Tab = createBottomTabNavigator();
@@ -29,7 +30,7 @@ const AppNavigator = () => {
 
             <Tab.Screen
                 name="Home"
-                component={HomeScreen}
+                component={HomeStack}
                 options={{
                     tabBarLabel: 'Home',
 
